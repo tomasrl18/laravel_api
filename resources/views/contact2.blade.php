@@ -8,7 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello from CRUD directory</h1>
-    <p>My name is {{ $name }}</p>
+    <h1>Contact 2</h1>
 </body>
 </html>
