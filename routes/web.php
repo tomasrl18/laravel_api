@@ -9,5 +9,4 @@ Route::get('/', function () {
 });
 
 Route::get('/contact', [FirstController::class, 'index'])->name('contact');
-
-Route::resource('example', FirstController::class);
+Route::get('/contact/{user_id}', [FirstController::class, 'show'])->name('contact.show');

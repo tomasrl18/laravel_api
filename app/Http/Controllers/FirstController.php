@@ -10,4 +10,9 @@ class FirstController extends Controller
     {
         return view('contact', [ "name" => 'Tomás' ]);
     }
+
+    function show(int $user_id)
+    {
+        echo $user_id;
+    }
 }
