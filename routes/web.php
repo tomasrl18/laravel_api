@@ -10,6 +10,4 @@ Route::get('/', function () {
 
 Route::get('/contact', [FirstController::class, 'index'])->name('contact');
 
-Route::get('/contact2', function () {
-    return view('contact2');
-})->name('contact2');
+Route::resource('example', FirstController::class);
