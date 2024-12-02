@@ -4,25 +4,27 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use Illuminate\View\View;
 
 class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): Collection
+    public function index(): String
     {
-        return Post::all();
+        return 'Index';
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
         $categories = Category::pluck('id', 'title');
 
@@ -32,9 +34,18 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        dd($request->all());
+        Post::create([
+            'title' => $request->title,
+            'slug' => $request->slug,
+            'description' => $request->description,
+            'content' => $request->content,
+            'category_id' => $request->category,
+            'posted' => $request->posted,
+        ]);
+
+        return to_route('post.index');
     }
 
     /**
