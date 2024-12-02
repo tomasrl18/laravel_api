@@ -16,9 +16,7 @@ class PostController extends Controller
     {
         $post = Post::find(1);
 
-        $post->update([
-            'slug' => 'An updated slug'
-        ]);
+        $post->delete();
 
         return 'Index';
     }
