@@ -17,8 +17,8 @@
 
         <label for="category">Pick a category</label>
         <select name="category" id="category" class="select">
-            @foreach($categories as $category)
-                <option value="{{ $category->id }}">{{ $category->title }}</option>
+            @foreach($categories as $title => $id)
+                <option value="{{ $id }}">{{ $title }}</option>
             @endforeach
         </select>
 
