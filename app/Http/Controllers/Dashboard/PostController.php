@@ -14,14 +14,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        Post::create([
-            'title' => 'A test title',
-            'slug' => 'A test slug',
-            'content' => 'A test content',
-            'category_id' => 1,
-            'description' => 'A test description',
-            'image' => 'A test image',
-            'posted' => 'no'
+        $post = Post::find(1);
+
+        $post->update([
+            'slug' => 'An updated slug'
         ]);
 
         return 'Index';
