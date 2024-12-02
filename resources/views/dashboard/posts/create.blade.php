@@ -6,10 +6,10 @@
         @csrf
 
         <label for="title">Title</label>
-        <input type="text" name="title" id="title" class="input">
+        <input type="text" name="title" id="title" class="input" required>
 
         <label for="slug">Slug</label>
-        <input type="text" name="slug" id="slug" class="input">
+        <input type="text" name="slug" id="slug" class="input" required>
 
         <label for="description">Description</label>
         <textarea name="description" id="description" class="textarea"></textarea>
@@ -18,7 +18,7 @@
         <textarea name="content" id="content" class="textarea"></textarea>
 
         <label for="category">Pick a category</label>
-        <select name="category" id="category" class="select">
+        <select name="category" id="category" class="select" required>
             @foreach($categories as $title => $id)
                 <option value="{{ $id }}">{{ $title }}</option>
             @endforeach
