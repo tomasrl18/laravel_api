@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Http\Requests\Post\StoreRequest;
 use App\Models\Category;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
@@ -34,26 +34,9 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(StoreRequest $request): RedirectResponse
     {
-        $request->validate([
-            'category_id' => 'required|integer',
-            'title' => 'required|min:5|max:500',
-            'slug' => 'required|min:5|max:500',
-            'content' => 'min:7',
-            'description' => 'min:7',
-            'posted' => 'required',
-        ]);
-
-        Post::create([
-            'title' => $request->title,
-            'slug' => $request->slug,
-            'description' => $request->description ?? '',
-            'content' => $request->content ?? '',
-            'category_id' => $request->category,
-            'posted' => $request->posted ?? 'no',
-        ]);
-
+        Post::create($request->validated());
         return to_route('post.index');
     }
 
