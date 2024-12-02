@@ -14,11 +14,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post = Post::find(1);
-
-        $post->delete();
-
-        return 'Index';
+        return response()->json([
+            'name' => 'John Doe',
+            'state' => 'UK'
+        ]);
     }
 
     /**
