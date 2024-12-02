@@ -14,10 +14,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        return response()->json([
-            'name' => 'John Doe',
-            'state' => 'UK'
-        ]);
+        $post = Post::find(5);
+
+        return $post->category->title;
     }
 
     /**
