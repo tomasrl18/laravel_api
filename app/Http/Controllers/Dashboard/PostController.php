@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Models\Category;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
@@ -12,11 +14,9 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): Collection
     {
-        $post = Post::find(5);
-
-        return $post->category->title;
+        return Post::all();
     }
 
     /**
@@ -24,7 +24,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+
+        return view('dashboard.posts.create', compact('categories'));
     }
 
     /**
