@@ -2,6 +2,15 @@
 
 @section('content')
     <h2>Create a Post</h2>
+
+    @if($errors->any())
+        @foreach($errors->all() as $error)
+            <div>
+                {{ $error }}
+            </div>
+        @endforeach
+    @endif
+
     <form action="{{ route('post.store') }}" method="post" class="form">
         @csrf
 
