@@ -18,7 +18,7 @@ class PostController extends Controller
      */
     public function index(): String
     {
-        $posts = Post::all();
+        $posts = Post::paginate(2);
 
         return view('dashboard.posts.posts-list', compact('posts'));
     }

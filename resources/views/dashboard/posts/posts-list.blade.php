@@ -27,6 +27,8 @@
         </tbody>
     </table>
 
+    {{ $posts->links() }}
+
     <style>
         .table-title {
             text-align: center;
