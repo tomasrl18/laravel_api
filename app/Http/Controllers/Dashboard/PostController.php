@@ -16,7 +16,7 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): String
+    public function index(): View
     {
         $posts = Post::paginate(2);
 
