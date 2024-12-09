@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Requests\Post\StoreRequest;
-use App\Models\Category;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-
 use App\Http\Controllers\Controller;
-use App\Models\Post;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
+
+use App\Http\Requests\Post\{StoreRequest, UpdateRequest};
+use App\Models\{Category, Post};
 
 class PostController extends Controller
 {
@@ -53,17 +51,20 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $post)
+    public function edit(Post $post): View
     {
-        //
+        $categories = Category::pluck('id', 'title');
+
+        return view('dashboard.posts.edit', compact('post', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(UpdateRequest $request, Post $post): RedirectResponse
     {
-        //
+        $post->update($request->validated());
+        return to_route('post.index');
     }
 
     /**

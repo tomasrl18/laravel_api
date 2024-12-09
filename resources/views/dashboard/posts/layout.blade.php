@@ -41,7 +41,7 @@
         h2 {
             margin-bottom: 1rem;
             color: #4CAF50;
-            font-size: 1.5rem;
+            font-size: 2.5rem;
             text-align: center;
         }
 
