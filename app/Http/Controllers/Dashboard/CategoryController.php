@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 use App\Http\Requests\Category\{StoreRequest, UpdateRequest};
@@ -33,7 +34,7 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreRequest $request)
+    public function store(StoreRequest $request): RedirectResponse
     {
         Category::create($request->validated());
         return to_route('category.index');
@@ -42,7 +43,7 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show(Category $category): View
     {
         return view('dashboard.categories.show', compact('category'));
     }
@@ -50,7 +51,7 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category)
+    public function edit(Category $category): View
     {
         return view('dashboard.categories.edit', compact('category'));
     }
@@ -58,7 +59,7 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRequest $request, Category $category)
+    public function update(UpdateRequest $request, Category $category): RedirectResponse
     {
         $category->update($request->validated());
         return to_route('category.index');
@@ -67,7 +68,7 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy(Category $category): RedirectResponse
     {
         if ($category->posts()->count() > 0) {
             return to_route('category.index');
