@@ -63,6 +63,11 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        if ($category->posts()->count() > 0) {
+            return to_route('category.index');
+        }
+
+        $category->delete();
+        return to_route('category.index');
     }
 }
