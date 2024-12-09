@@ -1,16 +1,14 @@
 @extends('dashboard.layout')
 
 @section('content')
-    <h2>Updating post: {{ $post->title }}</h2>
+    <h2>CREATE A CATEGORY</h2>
 
     @include('dashboard.fragment.errors-form')
 
-    <form action="{{ route('post.update', $post->id) }}" method="post" class="form" enctype="multipart/form-data">
-        @method('PATCH')
+    <form action="{{ route('category.store') }}" method="post" class="form">
+        @include('dashboard.categories.fragment.form')
 
-        @include('dashboard.posts.fragment.form', [ 'task' => 'edit' ])
-
-        <button type="submit" class="button">EDIT</button>
+        <button type="submit" class="button">CREATE</button>
     </form>
 
     <style>
@@ -25,7 +23,7 @@
             margin-bottom: 0.3rem;
         }
 
-        .input, .textarea, .select {
+        .input {
             width: 100%;
             padding: 0.7rem;
             border: 1px solid #ddd;
@@ -35,14 +33,10 @@
             transition: border 0.2s;
         }
 
-        .input:focus, .textarea:focus, .select:focus {
+        .input:focus {
             border-color: #4CAF50;
             outline: none;
             background-color: #fff;
-        }
-
-        .textarea {
-            min-height: 100px;
         }
 
         .button {

@@ -3,15 +3,18 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
+
+use App\Http\Requests\Category\StoreRequest;
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
         $categories = Category::paginate(2);
 
@@ -21,17 +24,20 @@ class CategoryController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
-        //
+        $category = new Category();
+
+        return view('dashboard.categories.create', compact('category'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        Category::create($request->validated());
+        return to_route('category.index');
     }
 
     /**

@@ -1,4 +1,4 @@
-@extends('dashboard.posts.layout')
+@extends('dashboard.layout')
 
 @section('content')
     <div class="post-details-container">

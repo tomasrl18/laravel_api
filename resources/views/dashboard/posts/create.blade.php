@@ -1,4 +1,4 @@
-@extends('dashboard.posts.layout')
+@extends('dashboard.layout')
 
 @section('content')
     <h2>CREATE A POST</h2>
