@@ -18,7 +18,7 @@ class PostController extends Controller
     {
         $posts = Post::paginate(2);
 
-        return view('dashboard.posts.posts-list', compact('posts'));
+        return view('dashboard.posts.list', compact('posts'));
     }
 
     /**
