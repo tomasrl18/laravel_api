@@ -55,7 +55,9 @@
 </head>
 <body>
 <header>
-    <h1>Blog Dashboard</h1>
+    <h1>
+        <a href="{{ route('index') }}" style="text-decoration: none; color: #ffffff">Blog Dashboard</a>
+    </h1>
 </header>
 <div class="container">
     @yield('content')
