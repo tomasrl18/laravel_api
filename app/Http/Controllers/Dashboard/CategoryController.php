@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
-use Illuminate\Http\Request;
 
-use App\Http\Requests\Category\StoreRequest;
+use App\Http\Requests\Category\{StoreRequest, UpdateRequest};
 use App\Models\Category;
 
 class CategoryController extends Controller
@@ -53,15 +52,16 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('dashboard.categories.edit', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(UpdateRequest $request, Category $category)
     {
-        //
+        $category->update($request->validated());
+        return to_route('category.index');
     }
 
     /**
