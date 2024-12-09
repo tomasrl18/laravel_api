@@ -28,6 +28,7 @@ class UpdateRequest extends FormRequest
             'content' => 'min:7',
             'description' => 'min:7',
             'posted' => 'required',
+            'image' => 'mimes:jpeg,png,jpg,webp|max:10240',
         ];
     }
 }

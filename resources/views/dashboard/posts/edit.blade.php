@@ -5,10 +5,10 @@
 
     @include('dashboard.fragment.errors-form')
 
-    <form action="{{ route('post.update', $post->id) }}" method="post" class="form">
+    <form action="{{ route('post.update', $post->id) }}" method="post" class="form" enctype="multipart/form-data">
         @method('PATCH')
 
-        @include('dashboard.posts.fragment.form')
+        @include('dashboard.posts.fragment.form', [ 'task' => 'edit' ])
 
         <button type="submit" class="button">EDIT</button>
     </form>

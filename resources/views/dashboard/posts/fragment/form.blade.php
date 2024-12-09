@@ -26,3 +26,8 @@
     <option value="no" {{ old("posted", $post->posted) == 'no' ? 'selected' : '' }}>No</option>
     <option value="yes" {{ old("posted", $post->posted) == 'yes' ? 'selected' : '' }}>Yes</option>
 </select>
+
+@if(isset($task) && $task == 'edit')
+    <label for="image">Image</label>
+    <input type="file" name="image" id="image" class="input">
+@endif

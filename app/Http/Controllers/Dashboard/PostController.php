@@ -64,7 +64,15 @@ class PostController extends Controller
      */
     public function update(UpdateRequest $request, Post $post): RedirectResponse
     {
-        $post->update($request->validated());
+        $data = $request->validated();
+
+        if (isset($data['image'])) {
+            $data['image'] = $filename = time().'.'.$data['image']->extension();
+
+            $request->image->move(public_path('uploads/posts'), $filename);
+        }
+
+        $post->update($data);
         return to_route('post.index');
     }
 
