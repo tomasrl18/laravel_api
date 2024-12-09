@@ -37,7 +37,7 @@ class CategoryController extends Controller
     public function store(StoreRequest $request): RedirectResponse
     {
         Category::create($request->validated());
-        return to_route('category.index');
+        return to_route('category.index')->with('status', 'Category created successfully');
     }
 
     /**
@@ -62,7 +62,7 @@ class CategoryController extends Controller
     public function update(UpdateRequest $request, Category $category): RedirectResponse
     {
         $category->update($request->validated());
-        return to_route('category.index');
+        return to_route('category.index')->with('status', 'Category updated successfully');
     }
 
     /**
@@ -71,10 +71,10 @@ class CategoryController extends Controller
     public function destroy(Category $category): RedirectResponse
     {
         if ($category->posts()->count() > 0) {
-            return to_route('category.index');
+            return to_route('category.index')->with('status', 'A category can\'t be deleted because it has some posts');
         }
 
         $category->delete();
-        return to_route('category.index');
+        return to_route('category.index')->with('status', 'Category deleted successfully');
     }
 }

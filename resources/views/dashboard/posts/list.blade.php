@@ -9,6 +9,8 @@
         </a>
     </div>
 
+    @include('dashboard.fragment.session-messages')
+
     <table class="styled-table">
         <thead>
         <tr>
@@ -196,5 +198,7 @@
         .trash:hover {
             opacity: 0.7;
         }
+
+
     </style>
 @endsection

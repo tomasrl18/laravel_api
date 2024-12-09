@@ -38,7 +38,7 @@ class PostController extends Controller
     public function store(StoreRequest $request): RedirectResponse
     {
         Post::create($request->validated());
-        return to_route('post.index');
+        return to_route('post.index')->with('status', 'Post created successfully');
     }
 
     /**
@@ -73,7 +73,7 @@ class PostController extends Controller
         }
 
         $post->update($data);
-        return to_route('post.index');
+        return to_route('post.index')->with('status', 'Post updated successfully');
     }
 
     /**
@@ -82,6 +82,6 @@ class PostController extends Controller
     public function destroy(Post $post): RedirectResponse
     {
         $post->delete();
-        return to_route('post.index');
+        return to_route('post.index')->with('status', 'Post deleted successfully');
     }
 }
