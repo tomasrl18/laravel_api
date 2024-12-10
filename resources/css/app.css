@@ -17,3 +17,7 @@
 .table td {
     @apply px-6 py-4 whitespace-normal place-content-center
 }
+
+.form-control {
+    @apply block rounded-sm shadow-sm bg-purple-50 w-full
+}
