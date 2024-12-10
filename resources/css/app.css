@@ -7,7 +7,7 @@ body {
 }
 
 h2 {
-    @apply text-2xl font-bold text-white;
+    @apply text-2xl font-bold;
 }
 
 .table {
@@ -42,8 +42,12 @@ h2 {
     @apply focus:ring-2 transition-all;
 }
 
-svg:hover .delete-action{
+svg:hover .delete-action {
     fill: #dc2626;
+}
+
+svg:hover .other-actions {
+    fill: #2563EB;
 }
 
 button {
@@ -56,4 +60,12 @@ button svg {
 
 .actions svg {
     @apply transition-transform transform hover:scale-110
+}
+
+.card {
+    @apply p-6 rounded-2xl shadow-sm
+}
+
+.card-gray-100 {
+    @apply bg-gray-100
 }
