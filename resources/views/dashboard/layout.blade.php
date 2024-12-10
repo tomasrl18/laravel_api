@@ -22,7 +22,9 @@
     @endisset
 
     <main>
-        @yield('content')
+        <div class="container mx-auto">
+            @yield('content')
+        </div>
     </main>
 </div>
 </body>
