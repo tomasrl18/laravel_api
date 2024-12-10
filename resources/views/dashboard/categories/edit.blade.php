@@ -4,7 +4,7 @@
     <div class="max-w-4xl mx-auto mt-8 p-6 bg-white shadow-md rounded-lg">
         @include('dashboard.fragment.errors-form')
         <form action="{{ route('category.update', $category->id) }}" method="post">
-            <h2>Updating post: {{ $category->title }}</h2>
+            <h2 class="text-3xl font-semibold text-gray-800 mb-6">Updating post: {{ $category->title }}</h2>
 
             @method('PATCH')
 
