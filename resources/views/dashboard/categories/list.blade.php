@@ -11,13 +11,13 @@
 
     @include('dashboard.fragment.session-messages')
 
-    <table>
+    <table class="table">
         <thead>
-        <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Options</th>
-        </tr>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Options</th>
+            </tr>
         </thead>
         <tbody>
         @foreach($categories as $category)

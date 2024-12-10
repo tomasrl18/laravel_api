@@ -11,7 +11,7 @@
 
     @include('dashboard.fragment.session-messages')
 
-    <table>
+    <table class="table">
         <thead>
         <tr>
             <th>Id</th>
