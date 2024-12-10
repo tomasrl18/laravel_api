@@ -1,17 +1,17 @@
 @extends('dashboard.layout')
 
 @section('content')
-    <h2 class="table-title">Posts List</h2>
+    <h2>Posts List</h2>
 
-    <div class="button-container">
-        <a class="create-post-button" href="{{ route('post.create') }}" target="_blank">
+    <div>
+        <a href="{{ route('post.create') }}" target="_blank">
             CREATE A POST
         </a>
     </div>
 
     @include('dashboard.fragment.session-messages')
 
-    <table class="styled-table">
+    <table>
         <thead>
         <tr>
             <th>Id</th>
@@ -69,89 +69,8 @@
     {{ $posts->links() }}
 
     <style>
-        .table-title {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            color: #333;
-        }
-
-        .styled-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 0 auto;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .styled-table thead {
-            background-color: #333;
-            color: #fff;
-        }
-
-        .styled-table th, .styled-table td {
-            text-align: left;
-            padding: 0.8rem 1rem;
-        }
-
-        .styled-table tbody tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        .styled-table tbody tr:nth-child(odd) {
-            background-color: #fff;
-        }
-
-        .styled-table tbody tr:hover {
-            background-color: #f1f1f1;
-        }
-
-        .styled-table td {
-            border-top: 1px solid #ccc;
-        }
-
-        .styled-table th {
-            border-bottom: 2px solid #555;
-        }
-
-        .button-container {
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 1rem;
-        }
-
-        .create-post-button {
-            background-color: #333;
-            color: #fff;
-            padding: 0.7rem 1.5rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .create-post-button:hover {
-            background-color: #555;
-            transform: translateY(-2px);
-        }
-
-        .create-post-button:active {
-            background-color: #222;
-            transform: translateY(0);
-        }
-
         a {
             text-decoration: none;
-        }
-
-        td svg {
-            cursor: pointer;
-            transition: transform 0.2s ease, fill 0.3s ease;
-        }
-
-        td svg:hover {
-            transform: scale(1.2);
-            fill: #555;
         }
 
         .a-options {
@@ -198,7 +117,5 @@
         .trash:hover {
             opacity: 0.7;
         }
-
-
     </style>
 @endsection

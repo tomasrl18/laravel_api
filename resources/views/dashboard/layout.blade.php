@@ -1,72 +1,29 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blog Dashboard</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-
-        header {
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 2rem auto;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
-        }
-
-        section {
-            margin-top: 1.5rem;
-        }
-
-        h1, h2 {
-            margin: 0;
-        }
-
-        h2 {
-            margin-bottom: 1rem;
-            color: #4CAF50;
-            font-size: 2.5rem;
-            text-align: center;
-        }
-
-        footer {
-            margin-top: 2rem;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #777;
-        }
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body>
-<header>
-    <h1>
-        <a href="{{ route('index') }}" style="text-decoration: none; color: #ffffff">Blog Dashboard</a>
-    </h1>
-</header>
-<div class="container">
-    @yield('content')
-    <section>
-        @yield('morecontent')
-    </section>
+<body class="font-sans antialiased">
+<div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+    @include('layouts.navigation')
+
+    @isset($header)
+        <header class="bg-white dark:bg-gray-800 shadow">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                {{ $header }}
+            </div>
+        </header>
+    @endisset
+
+    <main>
+        @yield('content')
+    </main>
 </div>
-<footer>
-    &copy; {{ date('Y') }} Blog Dashboard. All rights reserved.
-</footer>
 </body>
 </html>
