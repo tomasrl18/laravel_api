@@ -65,5 +65,7 @@
         </tbody>
     </table>
 
-    {{ $posts->links() }}
+    <div class="mt-5">
+        {{ $categories->links() }}
+    </div>
 @endsection
