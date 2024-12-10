@@ -23,7 +23,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             'title' => 'required|string|min:5',
-            'slug' => 'required|string|min:5|unique:categories,slug',
+            'slug' => 'required|string|min:5|unique:categories,slug,'.$this->route("category")->id,
         ];
     }
 }
