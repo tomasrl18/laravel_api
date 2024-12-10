@@ -3,7 +3,7 @@
 @section('content')
     <h2 class="uppercase text-center text-6xl">Posts List</h2>
     <div class="text-end mb-10 mt-10">
-        <a href="{{ route('post.create') }}" target="_blank" class="btn font-bold text-lg">
+        <a href="{{ route('post.create') }}" target="_blank" class="btn font-bold text-xl">
             CREATE A POST
         </a>
     </div>
