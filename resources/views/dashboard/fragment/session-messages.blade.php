@@ -1,26 +1,5 @@
 @if(session('status'))
-    <div class="status-message">
+    <div class="max-w-xl mx-auto mt-4 mb-4 p-4 bg-green-100 text-green-950 border-l-4 border-green-500 rounded-lg text-center uppercase font-bold">
         {{ session('status') }}
     </div>
 @endif
-
-<style>
-    .status-message {
-        max-width: 800px;
-        margin: 1rem auto;
-        padding: 1rem;
-        border: 1px solid #4caf50;
-        background-color: #e8f5e9;
-        color: #2e7d32;
-        border-radius: 8px;
-        font-size: 1rem;
-        text-align: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-
-    .status-message:hover {
-        transform: translateY(-2px);
-        opacity: 0.9;
-    }
-</style>

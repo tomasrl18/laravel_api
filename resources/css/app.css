@@ -2,22 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    @apply bg-gray-100 text-gray-800;
+}
+
+h2 {
+    @apply text-2xl font-bold text-white;
+}
+
 .table {
-    @apply table-auto w-full
+    @apply w-full border-collapse bg-white shadow-md rounded-lg;
 }
 
 .table th {
-    @apply px-6 py-2 bg-gray-50 font-medium text-gray-500 uppercase border leading-4 tracking-widest
+    @apply bg-gray-400 text-left px-6 py-4 text-sm font-bold text-black uppercase tracking-wider border-b;
 }
 
-.table tr {
-    @apply border
+.table tr:nth-child(even) {
+    @apply bg-gray-50;
+}
+
+.table tr:hover {
+    @apply bg-gray-100;
 }
 
 .table td {
-    @apply px-6 py-4 whitespace-normal place-content-center
+    @apply px-6 py-4 text-lg text-black;
 }
 
-.form-control {
-    @apply block rounded-sm shadow-sm bg-purple-50 w-full
+.options-container {
+    @apply flex gap-3;
+}
+
+.btn {
+    @apply bg-blue-600 text-white py-2 px-4 rounded shadow-md hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 transition-all;
+}
+
+.btn-danger {
+    @apply focus:ring-2 transition-all;
+}
+
+svg:hover .delete-action{
+    fill: #dc2626;
+}
+
+button {
+    @apply focus:outline-none;
+}
+
+button svg {
+    @apply transition-transform transform hover:scale-110;
+}
+
+.actions svg {
+    @apply transition-transform transform hover:scale-110
 }

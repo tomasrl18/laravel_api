@@ -1,13 +1,18 @@
 @extends('dashboard.layout')
 
 @section('content')
-    <h2>CREATE A CATEGORY</h2>
+    <div class="max-w-4xl mx-auto mt-8 p-6 bg-white shadow-md rounded-lg">
+        @include('dashboard.fragment.errors-form')
+        <form action="{{ route('category.store') }}" method="post">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-6">CREATE A CATEGORY</h2>
 
-    @include('dashboard.fragment.errors-form')
+            @include('dashboard.categories.fragment.form')
 
-    <form action="{{ route('category.store') }}" method="post">
-        @include('dashboard.categories.fragment.form')
-
-        <button type="submit">CREATE</button>
-    </form>
+            <div class="mt-6">
+                <button type="submit" class="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    CREATE
+                </button>
+            </div>
+        </form>
+    </div>
 @endsection

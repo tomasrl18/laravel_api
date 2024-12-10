@@ -1,15 +1,20 @@
 @extends('dashboard.layout')
 
 @section('content')
-    <h2>Updating post: {{ $post->title }}</h2>
+    <div class="max-w-4xl mx-auto mt-8 p-6 bg-white shadow-md rounded-lg">
+        @include('dashboard.fragment.errors-form')
+        <form action="{{ route('post.update', $post->id) }}" method="post" enctype="multipart/form-data">
+            <h2>Updating post: {{ $post->title }}</h2>
 
-    @include('dashboard.fragment.errors-form')
+            @method('PATCH')
 
-    <form action="{{ route('post.update', $post->id) }}" method="post" enctype="multipart/form-data">
-        @method('PATCH')
+            @include('dashboard.posts.fragment.form', [ 'task' => 'edit' ])
 
-        @include('dashboard.posts.fragment.form', [ 'task' => 'edit' ])
-
-        <button type="submit">EDIT</button>
-    </form>
+            <div class="mt-6">
+                <button type="submit" class="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    EDIT
+                </button>
+            </div>
+        </form>
+    </div>
 @endsection
