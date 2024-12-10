@@ -66,6 +66,6 @@
     </table>
 
     <div class="mt-5">
-        {{ $categories->links() }}
+        {{ $posts->links() }}
     </div>
 @endsection
