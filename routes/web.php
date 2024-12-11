@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Dashboard\{PostController, CategoryController};
+use App\Http\Controllers\Blog\BlogController;
 use App\Http\Middleware\UserAccessDashboard;
 
 Route::get('/', function () {
@@ -23,6 +24,10 @@ Route::group(['prefix' => '/dashboard', 'middleware' => ['auth', UserAccessDashb
 
     Route::resource('post', PostController::class);
     Route::resource('category', CategoryController::class);
+});
+
+Route::group(['prefix' => 'blog'], function () {
+   Route::get('', [BlogController::class, 'index']);
 });
 
 require __DIR__.'/auth.php';
