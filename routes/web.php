@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Dashboard\{PostController, CategoryController};
+use App\Http\Middleware\UserAccessDashboard;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,7 +20,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::group(['prefix' => '/dashboard', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => '/dashboard', 'middleware' => ['auth', UserAccessDashboard::class]], function () {
     Route::resource('post', PostController::class);
     Route::resource('category', CategoryController::class);
 });
