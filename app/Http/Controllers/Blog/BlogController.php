@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Blog;
 
 use App\Http\Controllers\Controller;
+use Illuminate\View\View;
+
 use App\Models\Post;
 
 class BlogController extends Controller
@@ -10,9 +12,9 @@ class BlogController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
-        $posts = Post::paginate(2);
+        $posts = Post::paginate(3);
 
         return view('blog.index', compact('posts'));
     }
@@ -36,9 +38,9 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Post $post): View
     {
-        //
+        return view('blog.show', compact('post'));
     }
 
     /**

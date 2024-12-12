@@ -27,7 +27,8 @@ Route::group(['prefix' => '/dashboard', 'middleware' => ['auth', UserAccessDashb
 });
 
 Route::group(['prefix' => 'blog'], function () {
-   Route::get('', [BlogController::class, 'index']);
+   Route::get('', [BlogController::class, 'index'])->name('blog.index');
+   Route::get('/{post}', [BlogController::class, 'show'])->name('blog.show');
 });
 
 require __DIR__.'/auth.php';

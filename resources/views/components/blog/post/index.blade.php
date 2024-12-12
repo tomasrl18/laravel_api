@@ -4,7 +4,9 @@
             <div class="bg-gray-100 border border-gray-300 rounded-lg p-4 shadow hover:shadow-lg transition duration-200">
                 <h3 class="text-xl font-semibold text-gray-800 mb-2">{{ $post->title }}</h3>
 
-                <a href="#" class="text-blue-600 hover:underline font-medium">Ruta de show</a>
+                <a href="{{ route('blog.show', $post) }}" class="text-blue-600 hover:underline font-medium">
+                    See de details
+                </a>
 
                 <p class="text-gray-600 mt-3">{{ $post->description }}</p>
             </div>
