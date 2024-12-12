@@ -1,19 +1,27 @@
-<div class="container mx-auto px-4">
+<div class="container mx-auto px-4 py-8">
     <div class="pt-5 space-y-4">
-        @foreach($posts as $post)
-            <div class="bg-gray-100 border border-gray-300 rounded-lg p-4 shadow hover:shadow-lg transition duration-200">
-                <h3 class="text-xl font-semibold text-gray-800 mb-2">{{ $post->title }}</h3>
+        <h1 class="text-4xl font-bold text-white mb-8 text-center border-b pb-4">
+            {{ $slot }}
+        </h1>
 
-                <a href="{{ route('blog.show', $post) }}" class="text-blue-600 hover:underline font-medium">
-                    See de details
-                </a>
+        <div class="space-y-6">
+            @foreach($posts as $post)
+                <div class="bg-gray-50 hover:bg-gray-200 hover:scale-105 border border-gray-300 rounded-lg p-5 shadow hover:shadow-lg transition-all duration-300">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">
+                        {{ $post->title }}
+                    </h3>
 
-                <p class="text-gray-600 mt-3">{{ $post->description }}</p>
-            </div>
-        @endforeach
+                    <a href="{{ route('blog.show', $post) }}" class="text-blue-500 hover:text-blue-700 font-medium transition duration-200">
+                        See de details
+                    </a>
+
+                    <p class="text-gray-600 mt-4 leading-relaxed">{{ $post->description }}</p>
+                </div>
+            @endforeach
+        </div>
     </div>
 
-    <div class="mt-5">
+    <div class="mt-8">
         {{ $posts->links() }}
     </div>
 </div>
