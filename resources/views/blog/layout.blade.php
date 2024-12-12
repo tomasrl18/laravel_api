@@ -21,10 +21,7 @@
 
     <main>
         <div class="container mx-auto">
-            <div class="card card-gray-100 mt-10">
-                <h1 class="text-6xl">Blog</h1>
-                @yield('content')
-            </div>
+            @yield('content')
         </div>
     </main>
 </div>
