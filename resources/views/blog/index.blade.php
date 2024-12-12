@@ -12,7 +12,7 @@
 
         @slot('footer')
             <hr class="my-12">
-            <footer class="bg-gray-800 text-white py-6 mt-12 rounded-lg shadow-md shadow-red-700 transition-all duration-300">
+            <footer class="bg-gray-800 text-white py-6 mt-12 rounded-lg shadow-md shadow-orange-300 transition-all duration-300">
                 <div class="container mx-auto px-4 text-center space-y-4">
                     <p class="text-lg font-semibold">Thank you for visiting our blog!</p>
 
