@@ -4,6 +4,24 @@
             {{ $slot }}
         </h1>
 
+        @isset($header)
+            <span class="text-white">
+                {{ $header }}
+            </span>
+        @endisset
+
+        @isset($postContent)
+            <span class="text-white">
+                {{ $postContent }}
+            </span>
+        @endisset
+
+        @isset($footer)
+            <span class="text-white">
+                {{ $footer }}
+            </span>
+        @endisset
+
         <div class="space-y-6">
             @foreach($posts as $post)
                 <div class="bg-gray-50 hover:bg-gray-200 hover:scale-105 border border-gray-300 rounded-lg p-5 shadow hover:shadow-lg transition-all duration-300">
