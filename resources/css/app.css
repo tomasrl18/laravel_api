@@ -61,3 +61,11 @@ button svg {
 .actions svg {
     @apply transition-transform transform hover:scale-110
 }
+
+.card {
+    @apply p-6 rounded-2xl shadow-sm
+}
+
+.card-gray-100 {
+    @apply bg-gray-100
+}
