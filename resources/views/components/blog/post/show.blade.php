@@ -17,8 +17,8 @@
         </div>
 
         <span class="inline-block bg-blue-100 text-blue-600 text-sm font-medium px-3 py-1 rounded-full mt-5 mb-10">
-                {{ $post->category->title }}
-            </span>
+            {{ $post->category->title }}
+        </span>
 
         <p class="text-gray-700 text-lg leading-relaxed">{{ $post->content }}</p>
 

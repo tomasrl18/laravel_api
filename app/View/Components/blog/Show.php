@@ -20,6 +20,6 @@ class Show extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.blog.show');
+        return view('components.blog.post.show');
     }
 }
