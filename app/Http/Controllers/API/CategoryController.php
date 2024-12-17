@@ -3,64 +3,38 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+
 use App\Models\Category;
-use Illuminate\Http\Request;
+use App\Http\Requests\Api\Category\{
+    StoreRequest,
+    UpdateRequest
+};
 
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        return response()->json('Hello world from API_CATEGORY');
+        return response()->json(Category::paginate(10));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function store(StoreRequest $request)
     {
-        //
+        return response()->json(Category::create($request->validated()));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
     public function show(Category $category)
     {
-        //
+        return response()->json($category);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Category $category)
+    public function update(UpdateRequest $request, Category $category)
     {
-        //
+        return response()->json($category->update($request->validated()));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Category $category)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return response()->json('Category deleted successfully');
     }
 }

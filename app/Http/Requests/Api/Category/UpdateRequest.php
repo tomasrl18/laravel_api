@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Category;
+namespace App\Http\Requests\Api\Category;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,7 +23,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'title' => 'required|string|min:5',
-            'slug' => 'required|string|min:5|unique:categories,slug',
+            'slug' => 'required|string|min:5|unique:categories,slug,'.$this->route("category")->id,
         ];
     }
 }

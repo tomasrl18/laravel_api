@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Post\{UpdateRequest};
+use App\Http\Requests\Api\Post\StoreRequest;
+use App\Models\{Category, Post};
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
-
-use App\Http\Requests\Post\{StoreRequest, UpdateRequest};
-use App\Models\{Category, Post};
 
 class PostController extends Controller
 {

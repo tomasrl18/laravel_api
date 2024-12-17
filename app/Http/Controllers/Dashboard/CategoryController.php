@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Category\{StoreRequest};
+use App\Http\Requests\Api\Category\UpdateRequest;
+use App\Models\Category;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
-
-use App\Http\Requests\Category\{StoreRequest, UpdateRequest};
-use App\Models\Category;
 
 class CategoryController extends Controller
 {
