@@ -18,6 +18,11 @@ class CategoryController extends Controller
         return response()->json(Category::paginate(10));
     }
 
+    public function getAllCategories(): JsonResponse
+    {
+        return response()->json(Category::all());
+    }
+
     public function store(StoreRequest $request): JsonResponse
     {
         return response()->json(Category::create($request->validated()));
