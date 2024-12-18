@@ -41,7 +41,7 @@
                         sortable: true,
                     },
                     {
-                        field: "category_id",
+                        field: "category.title",
                         label: "Category",
                         sortable: true,
                     }

@@ -6,16 +6,18 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 
 use App\Models\Post;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use App\Http\Requests\Api\Post\{
     StoreRequest,
     UpdateRequest
 };
+use App\Http\Resources\Api\Post\ListResource;
 
 class PostController extends Controller
 {
-    public function index(): JsonResponse
+    public function index(): AnonymousResourceCollection
     {
-        return response()->json(Post::paginate(10));
+        return ListResource::collection(Post::paginate(10));
     }
 
     public function getAllPosts(): JsonResponse
