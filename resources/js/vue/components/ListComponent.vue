@@ -1,9 +1,17 @@
 <template>
     <div>
-        <h1>Post List</h1>
+        <o-field>
+            <h1>Post List</h1>
+        </o-field>
 
         <section>
-            <o-table :data="posts" :columns="columns" />
+            <o-loading
+                v-model:active="isLoading"
+                label="Loading..."
+                :cancelable="true"
+                fullpage
+            ></o-loading>
+            <o-table :data="posts" :columns="columns" striped hoverable narrow fullwidth/>
         </section>
     </div>
 </template>
@@ -41,10 +49,21 @@
             }
         },
         mounted() {
-            this.$axios.get('/api/post').then(response => {
-                this.posts = response.data.data;
-                this.isLoading = false;
-            })
+            this.$axios.get('/api/post')
+                .then(response => {
+                    this.posts = response.data.data;
+                })
+                .finally(() => {
+                    this.isLoading = false;
+                });
         }
     }
 </script>
+
+<style scoped>
+h1 {
+    font-size: 1.5rem;
+    color: #4a4a4a;
+    margin-bottom: 1rem;
+}
+</style>
