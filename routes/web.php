@@ -8,7 +8,7 @@ use App\Http\Controllers\Blog\BlogController;
 use App\Http\Middleware\UserAccessDashboard;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('vue');
 });
 
 Route::middleware('auth')->group(function () {
