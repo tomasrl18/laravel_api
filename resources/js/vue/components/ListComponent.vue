@@ -2,12 +2,49 @@
     <div>
         <h1>Post List</h1>
 
-        <o-button @click="() => { console.log(this.$axios) }">
-            Click me
-        </o-button>
-
-        <o-field label="Email" variante="danger">
-            <o-input type="email" value="tomas@test.com"></o-input>
-        </o-field>
+        <section>
+            <o-table :data="posts" :columns="columns" />
+        </section>
     </div>
 </template>
+
+<script>
+    export default {
+        data() {
+            return {
+                posts: [],
+                isLoading: false,
+                columns: [
+                    {
+                        field: "id",
+                        label: "ID",
+                        width: "40",
+                        numeric: true,
+                        sortable: true,
+                    },
+                    {
+                        field: "title",
+                        label: "Title",
+                        sortable: true,
+                    },
+                    {
+                        field: "posted",
+                        label: "Posted",
+                        sortable: true,
+                    },
+                    {
+                        field: "category_id",
+                        label: "Category",
+                        sortable: true,
+                    }
+                ]
+            }
+        },
+        mounted() {
+            this.$axios.get('/api/post').then(response => {
+                this.posts = response.data.data;
+                this.isLoading = false;
+            })
+        }
+    }
+</script>
