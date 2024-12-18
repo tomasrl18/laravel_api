@@ -2,7 +2,7 @@
     <div>
         <h1>Post List</h1>
 
-        <o-button @click="() => { console.log('Hello world') }">
+        <o-button @click="() => { console.log(this.$axios) }">
             Click me
         </o-button>
 
