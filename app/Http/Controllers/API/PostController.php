@@ -33,6 +33,13 @@ class PostController extends Controller
         return response()->json($post);
     }
 
+    public function findPostBySlug(string $slug): JsonResponse
+    {
+        $post = Post::whereSlug($slug)->firstOrFail();
+
+        return response()->json($post);
+    }
+
     public function update(UpdateRequest $request, Post $post): JsonResponse
     {
         return response()->json($post->update($request->validated()));

@@ -33,6 +33,13 @@ class CategoryController extends Controller
         return response()->json($category);
     }
 
+    public function findCategoryBySlug(string $slug): JsonResponse
+    {
+        $category = Category::whereSlug($slug)->firstOrFail();
+
+        return response()->json($category);
+    }
+
     public function update(UpdateRequest $request, Category $category): JsonResponse
     {
         return response()->json($category->update($request->validated()));

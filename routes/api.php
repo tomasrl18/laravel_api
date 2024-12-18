@@ -10,7 +10,9 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::get('category/all', [CategoryController::class, 'getAllCategories']);
+Route::get('category/{slug}', [CategoryController::class, 'findCategoryBySlug']);
 Route::resource('category', CategoryController::class);
 
 Route::get('post/all', [PostController::class, 'getAllPosts']);
+Route::get('post/{slug}', [PostController::class, 'findPostBySlug']);
 Route::resource('post', PostController::class);
