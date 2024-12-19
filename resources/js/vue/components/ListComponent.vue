@@ -12,6 +12,22 @@
                 fullpage
             ></o-loading>
             <o-table :data="posts" :columns="columns" striped hoverable narrow fullwidth/>
+
+            <o-pagination
+                v-if="postsMeta && postsMeta.total > 0"
+                @change="updatePage"
+                :total="postsMeta.total"
+                v-model:current="currentPage"
+                :range-before="2"
+                :range-after="2"
+                size="small"
+                :simple="false"
+                :rounded="true"
+                :per-page="postsMeta.per_page"
+                icon-prev="chevron-left"
+                icon-next="chevron-right"
+                order="centered"
+            ></o-pagination>
         </section>
     </div>
 </template>
@@ -21,6 +37,7 @@
         data() {
             return {
                 posts: [],
+                postsMeta: [],
                 isLoading: false,
                 columns: [
                     {
@@ -45,25 +62,38 @@
                         label: "Category",
                         sortable: true,
                     }
-                ]
+                ],
+                currentPage: 1,
             }
         },
         mounted() {
-            this.$axios.get('/api/post')
-                .then(response => {
-                    this.posts = response.data.data;
-                })
-                .finally(() => {
-                    this.isLoading = false;
-                });
+            this.listPage();
+        },
+        methods: {
+            listPage() {
+                this.isLoading = true;
+
+                this.$axios.get('/api/post?page=' + this.currentPage)
+                    .then(response => {
+                        this.posts = response.data.data;
+                        this.postsMeta = response.data.meta;
+                    })
+                    .finally(() => {
+                        this.isLoading = false;
+                    });
+            },
+            updatePage(page) {
+                this.currentPage = page;
+                this.listPage();
+            }
         }
     }
 </script>
 
 <style scoped>
-h1 {
-    font-size: 1.5rem;
-    color: #4a4a4a;
-    margin-bottom: 1rem;
-}
+    h1 {
+        font-size: 1.5rem;
+        color: #4a4a4a;
+        margin-bottom: 1rem;
+    }
 </style>
