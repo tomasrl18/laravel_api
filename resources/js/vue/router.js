@@ -1,11 +1,12 @@
 import { createMemoryHistory, createRouter } from 'vue-router'
 
-import App from './App.vue';
+import List from './components/ListComponent.vue';
 
 const routes = [
     {
+        name: 'postsList',
         path: '/',
-        component: App
+        component: List
     }
 ]
 

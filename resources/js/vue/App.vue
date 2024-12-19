@@ -3,19 +3,9 @@
         <o-field>
             <h1>Principal</h1>
         </o-field>
-        <List />
+        <RouterView></RouterView>
     </div>
 </template>
-
-<script>
-    import List from './components/ListComponent.vue'
-
-    export default {
-        components: {
-            List
-        }
-    }
-</script>
 
 <style>
 .app-container {
